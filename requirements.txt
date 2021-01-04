@@ -8,6 +8,7 @@ jupyter==1.0.0
 opencv-python==4.5.1.48
 testresources
 sklearn
+scikit-image
 seaborn
 pydot
 
