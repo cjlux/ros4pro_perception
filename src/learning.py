@@ -66,15 +66,7 @@ def build_model(input_shape, nb_classe):
     # YOUR CODE HERE #
     ##################
 
-    model.add(Input(shape=input_shape))
-    model.add(Conv2D(6, 5, padding='same', activation='relu', name='C1'))
-    model.add(MaxPool2D(pool_size=2, name='S2'))
-    model.add(Conv2D(16, 5, padding='valid', activation='relu', name='C3'))
-    model.add(MaxPool2D(pool_size=2, name='S4'))
-    model.add(Flatten())
-    model.add(Dense(200, activation='relu', name='C5'))
-    model.add(Dense(84, activation='relu', name='F6'))
-    model.add(Dense(nb_classe, activation='softmax', name='Output'))
+    
 
     return model
 
@@ -85,7 +77,7 @@ def train_model(model, data_train, data_test, batch_size, epoch=20):
     """
     callbacks_list = [ 
         EarlyStopping(monitor='val_accuracy',  # the parameter to watch on
-                      patience=3,                 # max number of 'val_accuracy' decreases
+                      patience=3,              # max number of 'val_accuracy' decreases
                       verbose=1)
     ]
     tf.random.set_seed(SEED)
@@ -104,16 +96,16 @@ def train_model(model, data_train, data_test, batch_size, epoch=20):
 if __name__ == "__main__":
 
     BATCH_SIZE = 128
-    CLASSES = [1, 2]
+    CLASSES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     SEED = 12
     np.random.seed(SEED)      
 
-    SHOW_SAMPLES = 0
-    SHOW_WEIGHTS = 0
-    SHOW_ACTIV   = 0
+    SHOW_SAMPLES = 1
+    SHOW_WEIGHTS = 1
+    SHOW_ACTIV   = 1
 
-    print("1) Loading dataset:")
+    print("\n1) Loading dataset:")
     print("-------------------")
     (x_train, y_train), (x_test, y_test) = load_data()
     print(f"x_train is a numpy array of shape {format(x_train.shape)}")
@@ -126,7 +118,7 @@ if __name__ == "__main__":
         vis.preview_samples(x_train, y_train, "Samples")
         input("Answer questions in 2.2 and press enter to continue...")
 
-    print("3) Preparing data")
+    print("\n3) Preparing data")
     print("------------------")
     x_train = prepare_input(x_train)
     x_test  = prepare_input(x_test)
@@ -143,13 +135,13 @@ if __name__ == "__main__":
         vis.preview_samples(x_train, y_train_orig, "Samples")
         input("Answer questions in 2.4 and press enter to continue...")
 
-    print("5) Instantiating the model")
+    print("\n5) Instantiating the model")
     print("--------------------------")
     model = build_model((28, 28, 1), (len(CLASSES)))
     print("Model is: {}".format(model.summary()))
     input("Answer questions in 2.5 and press enter to continue...")
 
-    print("6) Compiling model")
+    print("\n6) Compiling model")
     print("------------------")
     tf.random.set_seed(SEED)
     model.compile(loss='categorical_crossentropy',
@@ -166,14 +158,14 @@ if __name__ == "__main__":
     input("Answer questions in 2.7 and press enter to continue...")
 
     if SHOW_WEIGHTS:
-        print("8) Visualising weights")
+        print("\n8) Visualising weights")
         print("----------------------")
         vis.preview_kernels(model.weights[0].numpy(), "First Layer kernels")
         vis.preview_kernels(model.weights[2].numpy(), "Second Layer kernels")
         input("Answer questions in 2.8 and press enter to continue...")
 
     if SHOW_ACTIV:
-        print("9) Visualising activations")
+        print("\n9) Visualising activations")
         print("--------------------------")
         while True:
             inpt = input("Enter the sample index to preview (to skip, just press enter): ")
@@ -183,7 +175,7 @@ if __name__ == "__main__":
                 idx = int(inpt)
                 vis.preview_activations(model, x_train[idx:idx+1], "Activations of neural network for one sample")
 
-    print("10) Saving the network")
+    print("\n10) Saving the network")
     print("---------------------")
     inpt = input("Enter the path to save the network to (to skip,, just press enter): ")
     if inpt:

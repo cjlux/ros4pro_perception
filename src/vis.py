@@ -1,5 +1,5 @@
 """
-Visualization using visdom.
+Visualization tools.
 """
 
 import numpy as np

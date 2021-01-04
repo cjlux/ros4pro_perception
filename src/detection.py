@@ -131,9 +131,9 @@ def get_sprites(image, ctrs, debug=False):
 
     return sprts
 
-def preprocess_sprites(sprts, offset=3, coeff=0.8, debug=False):
+def preprocess_sprites(sprts, debug=False):
     """
-    This function preprocesses sprites to make them closer to the mnist images.
+    This function preprocesses sprites to make them closer to the MNIST images.
     """
 
     out_sprites = []
@@ -147,16 +147,9 @@ def preprocess_sprites(sprts, offset=3, coeff=0.8, debug=False):
         # YOUR CODE HERE #
         ##################
 
-        img = (255*img).astype(int)
-        img = img.max() - img
-        
-        img[:offset] = coeff*img.mean()
-        img[-offset:]= coeff*img.mean()
-        img[:,:offset] = coeff*img.mean()
-        img[:,-offset:] = coeff*img.mean()
 
-        if debug: show_image(img, "Pre-processed sprites")
-            
+ 
+        if debug: show_image(img, "Pre-processed sprites")           
         out_sprites.append(img)
 
     return out_sprites
@@ -210,6 +203,6 @@ if __name__ == "__main__":
     print("-----------------")
     all_sprites = []
     for sprt in sprites:
-        all_sprites.append(preprocess_sprites(sprt, debug=1, offset=2))
+        all_sprites.append(preprocess_sprites(sprt, debug=1))
     input("Answer questions in 3.5 and press enter to continue...")
 

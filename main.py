@@ -11,7 +11,7 @@ from tensorflow.keras.models import load_model
 
 LABELS=[1, 2]
 
-Box = collections.namedtuple('Box', 'contour sprite label')
+Box = collections.namedtuple('Box', 'contour sprite input label')
 
 def process(image, model, debug=None):
     """
@@ -21,10 +21,10 @@ def process(image, model, debug=None):
     debug_inner = debug in ["inner", "all"]
     contours = get_box_contours(image, debug=debug_inner)
     sprites = get_sprites(image, contours, debug=debug_inner)
-    inputs = preprocess_sprites(sprites, debug=debug_inner)
+    inputs = preprocess_sprites(sprites, offset=2, debug=debug_inner)
     labels = [model.predict(i.reshape(1, 28, 28, 1)).squeeze().argmax() + 1 for i in inputs]
 
-    boxes = [Box(contour=c, sprite=s, label=l) for c, s, l in  zip(contours, sprites, labels)]
+    boxes = [Box(contour=c, sprite=s, input=i, label=l) for c, s, i, l in  zip(contours, sprites, inputs, labels)]
 
     if debug in ["all", "synthesis"]:
         for box in boxes:
@@ -34,6 +34,7 @@ def process(image, model, debug=None):
             ax[0].plot(box.contour.mean(axis=0)[0], box.contour.mean(axis=0)[1], "og")
             ax[0].set_axis_off()
             ax[1].imshow(box.sprite, cmap='gray')
+            ax[1].imshow(box.input, cmap='gray')
             ax[1].set_title("Label recognized: {}".format(box.label))
             ax[1].set_axis_off()
             plt.tight_layout()
@@ -45,13 +46,13 @@ def process(image, model, debug=None):
 
 if __name__ == "__main__":
 
-    print("1) Load model")
+    print("\n1) Load model")
     print("----------------")
     path = input("Enter the path to your network file: ")
     model = load_model(path)
     print(model.summary)
 
-    print("2) Process data")
+    print("\n2) Process data")
     print("------------")
     test = glob.glob('data/Ergo_cubes/*png')
     for path in test:
