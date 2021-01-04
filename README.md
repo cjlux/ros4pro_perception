@@ -4,9 +4,9 @@ Ce repository contient le code à remplir et analyser pour la journée perceptio
 
 ## 0. Installation
 
-Pour effectuer cet atelier, vous devez installer quelques packages:
+Pour effectuer cet atelier, vous devez installer des packages Python en tapant la commande :
 ```
-pip install tensorflow keras imageio matplotlib scikit-image numpy
+pip install -r requirements.txt
 ```
 
 ## 1. Documentation
