@@ -9,12 +9,13 @@ __pycache__/
 .ipynb_checkpoints
 
 # weights and models of trained NN
-weights/
-models/
+notebook/weights/
+notebook/models/
 
 .vscode/
 model.png
-activationFunctions.png
+
+notebook/utils/activationFunctions.png
 
 _jlc/
 
