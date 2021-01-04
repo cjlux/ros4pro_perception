@@ -40,6 +40,7 @@ def prepare_input(x):
     This function prepares the input.
     """
     x = x.reshape(x.shape+(1,))
+    x = x/255.
     return x
 
 def prepare_output(y):
@@ -57,6 +58,8 @@ def build_model(input_shape, nb_classe):
     """
     This function builds the neural network that will be used for classification.
     """
+    tf.random.set_seed(SEED)
+    
     model = Sequential(name='lenet')
 
     ##################
@@ -82,8 +85,8 @@ def train_model(model, data_train, data_test, batch_size, epoch=20):
     """
     callbacks_list = [ 
         EarlyStopping(monitor='val_accuracy',  # the parameter to watch on
-                    patience=2,                # accpet that 'val_accuracy' decreases only 2 times 
-                    verbose=1)
+                      patience=3,                 # max number of 'val_accuracy' decreases
+                      verbose=1)
     ]
     tf.random.set_seed(SEED)
 
@@ -103,9 +106,8 @@ if __name__ == "__main__":
     BATCH_SIZE = 128
     CLASSES = [1, 2]
 
-    SEED = 1234
+    SEED = 12
     np.random.seed(SEED)      
-    tf.random.set_seed(SEED)
 
     SHOW_SAMPLES = 0
     SHOW_WEIGHTS = 0
@@ -149,6 +151,7 @@ if __name__ == "__main__":
 
     print("6) Compiling model")
     print("------------------")
+    tf.random.set_seed(SEED)
     model.compile(loss='categorical_crossentropy',
                   optimizer='adam',
                   metrics=['accuracy'])
@@ -159,6 +162,7 @@ if __name__ == "__main__":
     hist = train_model(model, 
                       (x_train, y_train), (x_test, y_test), 
                       BATCH_SIZE)    
+    vis.plot_loss_accuracy(hist)                      
     input("Answer questions in 2.7 and press enter to continue...")
 
     if SHOW_WEIGHTS:

@@ -148,7 +148,7 @@ def preprocess_sprites(sprts, offset=3, coeff=0.8, debug=False):
         ##################
 
         img = (255*img).astype(int)
-        img = 255 -img
+        img = img.max() - img
         
         img[:offset] = coeff*img.mean()
         img[-offset:]= coeff*img.mean()
@@ -210,6 +210,6 @@ if __name__ == "__main__":
     print("-----------------")
     all_sprites = []
     for sprt in sprites:
-        all_sprites.append(preprocess_sprites(sprt, debug=1))
+        all_sprites.append(preprocess_sprites(sprt, debug=1, offset=2))
     input("Answer questions in 3.5 and press enter to continue...")
 
