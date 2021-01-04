@@ -73,7 +73,7 @@ Appuyer à nouveau sur entrée et observer les images:
 
 + Regarder la fonction `prepare_input` : quelle transformation des images est effectuée? 
 
-### 2.5 Le modêle
+### 2.5 Le modèle
 
 Arrêter le script. Dans le fichier source, modifier la fonction `build_model` pour implémenter le réseau *LeNet* vu dans le notebook `TP2_MNIST_convol.ipynb`. Une fois fait, relancer le script et faire défiler jusqu'à la partie 2.5. Observer le résumé du modèle :
 
@@ -157,26 +157,26 @@ Arrêter le script. Jusqu'à présent, nous avons travaillé sur l'ensemble des 
 
 * Changer les SHOW_SAMPLES, SHOW_WEIGHTS et SHOW_ACTIV si vous désirez moins d'affichage graphique,
 
-* entrainer le réseau, puis le sauvegarder en donnat un nom d'un répertoire où sauvegarder les fichiers du réseau entraîné.
+* entraîner le réseau, puis le sauvegarder en donnant le nom d'un répertoire où sauvegarder les fichiers du réseau entraîné.
 
-Vous pouvez passer maintenant à la **Partie Visio** qui permettra une fois achéve d'observer les résulats du réseau entraîné avec les images des cubes correctement traitées... 
+Vous pouvez passer maintenant à la **Partie Vision** qui permettra, une fois achevée, d'observer les prédictions du réseau avec les images des cubes correctement traitées... 
 
-## 3. Partie vision
+## 3. Partie Vision
 
 Ouvrez le fichier `src/detection.py`.
 
 ### 3.1 Présentation des données
 
-Démarrer le script. Une des images d'exemple issue du robot devrait vous être présentée:
+Démarrer le script. Une des images d'exemple issue du robot devrait vous être présentée :
 
 + Observer les valeurs de pixels ? Quelles sont les valeurs de pixels blancs et noirs ?
-+ De manière génerale, la face des cubes est elle semblable aux images de mnist ? 
++ De manière générale, la face des cubes est elle semblable aux images MNIST ? 
 
 ### 3.2 Binarisation de l'image
 
-Appuyer sur entrée, et vous devriez voir s'afficher une image binarisée:
+Appuyer sur entrée, et vous devriez voir s'afficher une image binarisée :
 
-+ Pouvez vous penser à un algorithme permettant d'arriver à un résultat à peu prés similaire ?
++ Pouvez vous penser à un algorithme permettant d'arriver à un résultat similaire ?
 
 Dans le code, observer la fonction `binarize`:
 
@@ -216,6 +216,7 @@ Observer la fonction `get_sprites`:
 Pendant la phase d'apprentissage, nous avons étudié la préparation qui était faite des images. 
 
 Les vignettes que nous allons présenter au réseau de neurones doivent aussi subir une préparation pour avoir les mêmes caractéristiques que les images d'entrainement MNIST :
+
 * Remplir la fonction `preprocess_sprites` pour effectuer cette préparation.
 
 Une fois que cela est fait, executez le script jusqu'à la fin.
