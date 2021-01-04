@@ -1,17 +1,19 @@
 # Ros 4 Industry: Journée Perception
 
-Ce repository contient le code à remplir et analyser pour la journée perception. 
+Ce repository contient le code source à analyser et compléter pour la journée perception du workshop ROS4PRO. 
 
 ## 0. Installation
 
-Pour effectuer cet atelier, vous devez installer des packages Python en tapant la commande :
+Pour travailler cet atelier, vous devez installer des packages Python en tapant la commande (depuis le dossier `ros4pro_perception`) :
 ```
 pip install -r requirements.txt
 ```
 
 ## 1. Documentation
 
-Pour manipuler le code, vous aurez besoin de consulter plusieurs documentations. De manière générale, vous aurez besoin de numpy. Si vous n'êtes pas familier avec, vous pouvez consulter:
+Pour anlyser et compléter les codes fournis, vous aurez besoin de consulter plusieurs documentations.
+
+De manière générale, vous aurez besoin de numpy. Si vous n'êtes pas familier avec ce module, vous pouvez consulter:
 + [Numpy cheatsheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
 + [Numpy Documentation](https://numpy.org/devdocs/user/quickstart.html)
 
