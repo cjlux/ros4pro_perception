@@ -159,7 +159,7 @@ Vous pouvez passer maintenant à la **Partie Vision** qui permettra, une fois ac
 
 ## 3. Partie Vision
 
-Le but de la partie Vision est de traiter les images fournie par la caméra du robot :
+Le but de la partie Vision est de traiter les images fournies par la caméra du robot :
 
 ![212.png](img/212.png)
 
@@ -167,7 +167,7 @@ pour trouver les contours des cubes :
 
 ![212_contours.png](img/212_contours.png)
 
-et extraire les faces de façon produire des images compatibles MNIST :
+et extraire des images compatibles MNIST :
 
 ![212_contours.png](img/2.png)
 
