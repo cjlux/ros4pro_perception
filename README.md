@@ -1,4 +1,4 @@
-# Ros 4 Industry: Journée Perception
+# ROS4PRO : Journée Perception
 
 Ce repository contient le code source à analyser et compléter pour la journée perception du workshop ROS4PRO. 
 
