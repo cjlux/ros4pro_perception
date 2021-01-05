@@ -108,8 +108,8 @@ if __name__ == "__main__":
     print("\n1) Loading dataset:")
     print("-------------------")
     (x_train, y_train), (x_test, y_test) = load_data()
-    print(f"x_train is a numpy array of shape {format(x_train.shape)}")
-    print(f"y_train is a numpy array of shape {format(y_train.shape)}")
+    print(f"x_train is a numpy array of shape {x_train.shape}")
+    print(f"y_train is a numpy array of shape {y_train.shape}")
     input("Answer questions in 2.1 and press enter to continue...")
 
     if SHOW_SAMPLES:
@@ -125,8 +125,8 @@ if __name__ == "__main__":
     y_train_orig = y_train
     y_train = prepare_output(y_train)
     y_test  = prepare_output(y_test)
-    print(f"x_train is a numpy array of shape {format(x_train.shape)}")
-    print(f"y_train is a numpy array of shape {format(y_train.shape)}")
+    print(f"x_train is a numpy array of shape {x_train.shape}")
+    print(f"y_train is a numpy array of shape {y_train.shape}")
     input("Answer questions in 2.3 and press enter to continue...")
 
     if SHOW_SAMPLES:
