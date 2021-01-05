@@ -33,11 +33,11 @@ Deux notebooks *à trous* sont proposés pour la prise en main du *machine learn
 
 * `notebook/TP1_MNIST_dense.ipynb` : pour acquérir les bases sur le *machine learning*, la banque d'images MNIST utilisée pour l'entraînement des réseaux, et la construction d'un réseau de neurones dense, son entraînement et son exploition, conduisant à un taux de reconnaissance des images MNIST voisin de 98 %.
 
-* `notebook/TP2_MNIST_convol.ipynb` : pour la construction d'un réseau convolutionnel, son entraînement avc les images MNIST et son exploition, conduisant à un taux de reconnaissance voisin de 98 %.
+* `notebook/TP2_MNIST_convol.ipynb` : pour la construction d'un réseau convolutif, son entraînement avc les images MNIST et son exploition, conduisant à un taux de reconnaissance voisin de 98 %.
 
-### b/ Mise en oeuvre avec des pogrammes Pythons
+### b/ Mise en oeuvre avec des programmes Pythons
 
-Une fois familiarisé avec la principes de construction des réseaux denses et convolutifs abordés avec les deux notebooks TP1 et TP2, vous pourrez aborder l'exploitation de vos acquis en ouvrant le fichier `src/learning.py`.
+Une fois familiarisé avec les principes de construction des réseaux denses et convolutifs abordés avec les notebooks des TP1 et TP2, vous pourrez aborder l'exploitation de vos acquis en ouvrant le fichier `src/learning.py`.
 
 Prendre connaissance du code, puis le lancer :
 
@@ -55,7 +55,7 @@ Avant d'appuyer sur entrée, répondre aux questions suivantes :
 
 Appuyer sur entrée pour continuer, et observer les images :
 
-+ Quelle sont les valeurs des pixels blancs (représentés en jaune) et des pixels noirs ? 
++ Quelles sont les valeurs des pixels blancs et des pixels noirs ? 
 
 + Observer les données et leurs labels. Toutes les images sont elles simples à classifier correctement? Ferriez vous des erreurs en les classifiants ?
 
@@ -63,11 +63,11 @@ Appuyer sur entrée pour continuer, et observer les images :
 
 Fermer la fenêtre et appuyer à nouveau sur entré :
 
-+ Quelle sont les formes respectives de `x_train` et `y_train` maintenant?
++ Quelles sont les formes respectives de `x_train` et `y_train` maintenant?
 
 + Pourquoi ces changements ?
 
-### 2.4 Prévisulation des données préparées
+### 2.4 Prévisualation des données préparées
 
 Appuyer à nouveau sur entrée et observer les images:
 
@@ -77,7 +77,7 @@ Appuyer à nouveau sur entrée et observer les images:
 
 ### 2.5 Le modèle
 
-Arrêter le script. Dans le fichier source, modifier la fonction `build_model` pour implémenter le réseau *LeNet* vu dans le notebook `TP2_MNIST_convol.ipynb`. Une fois fait, relancer le script et faire défiler jusqu'à la partie 2.5. Observer le résumé du modèle :
+Arrêter le script. Dans le fichier source `learning.py` modifier la fonction `build_model` pour implémenter le réseau *LeNet* vu dans le notebook `TP2_MNIST_convol.ipynb`. Une fois fait, relancer le script et faire défiler jusqu'à la partie 2.5 (vous pouvez modifier `SHOW_SAMPLES` pour ne pas afficher toutes les fenêtres...). Observer le résumé du modèle :
 
 + Observer le nombre de paramêtres par couche. Quelles sont les couches qui ont le plus grand nombre de paramètres ?
 
@@ -87,9 +87,9 @@ Arrêter le script. Dans le fichier source, modifier la fonction `build_model` p
 
 Arrêter le script.
 
-Dans le notebook `TP1_MNIST_dense.ipynb` nous avons vu que la fonction de coût **entropie croisée** (*cross entropy*) était la plus adaptée au calcul d'euueur savce des sorties au format *hot-one*.
+Dans le notebook `TP1_MNIST_dense.ipynb` nous avons vu que la fonction de coût **entropie croisée** (*cross entropy*) était la plus adaptée au calcul d'erreur avec des sorties au format *hot-one*.
 
-Vérifier que c'est bien la fonction de coût utilisée dans l'appel à la fonction `modele.compile(...)`.
+Vérifier que c'est bien la fonction de coût utilisée dans l'appel à `modele.compile(...)`.
 
 L'optimiseur est utilisé pour se déplacer vers un minimum sur la surface déssinée par la fonction de coût dans l'espace des paramêtres. 
 
@@ -101,13 +101,13 @@ Un des algorithmes les plus simples est la __descente de gradient__ (GD) et cons
 
 + Que se passe-t-il si cette hypothèse n'est pas vérifiée ? 
 
-__Adam__ est un optimiseur plus complexe que GD. Sur l'image suivante, on voit plusieurs optimiseurs se déplacer sur une fonction de cout.
+__Adam__ est un optimiseur plus complexe que GD. Sur l'image suivante, on voit plusieurs optimiseurs se déplacer sur une fonction de coût.
 ![cette image](https://github.com/Jaewan-Yun/optimizer-visualization/raw/master/figures/movie11.gif)
 (source : github.com/Jaewan-Yun/optimizer-visualization/raw/master/figures/movie11.gif)
 
 Concentrez-vous sur Adam et GD:
 
-+ Quelle semble être la caractéristique de Adam comparée a GD? 
++ Quelle semble être la caractéristique de Adam comparée a GD ?
 
 Une autre caracteristique de l'algorithme GD, est que la taille du pas qui est effectué à chaque itération est fixe. L'image suivante montre Adam et GD dans un cas ou la pente devient trés forte. 
 ![cette image](https://github.com/Jaewan-Yun/optimizer-visualization/raw/master/figures/movie9.gif)
@@ -123,19 +123,19 @@ pour finir :
 
 + Quelle conclusion pouvez vous tirer sur l'utilité de GD pour entrainer des réseaux de neurones ?
 
-+ Quel est l'algorithme utilisé dans le code ?
++ Quel est l'optimiseur utilisé dans le code ?
 
 ### 2.7 Entraînement
 
-* Observer la fonction `train_model` pour vérifier la mise en place du mécanisme **keras** permettant d'arrêter l'entraînement avant apparition de l'*over-fit*.
+* Observer la fonction `train_model` pour vérifier la mise en place du mécanisme **keras** permettant de gérer le sur-entraînement (*over-fit*).
 
-* Relancer le code (vous pouvez jouer sur le paramètre `SHOW_SAMPLES` pour ne plus afficher les visualisations des données...) et appuyer sur entrée jusqu'au déclenchement de la partie 2.7...
+* Relancer le code et appuyer sur entrée jusqu'au déclenchement de la partie 2.7...
 Vous devriez voir les itérations d'entraînement se succéder et s'arrêter automatiquement par **early stopping**.
 
 
 ### 2.8 Poids appris
 
-Appuyer sur entrée pour visualiser les noyaux convolutifs appris par le réseau de neurones:
+Appuyer sur entrée pour visualiser les noyaux convolutifs appris par le réseau de neurones :
 
 + En observant les noyaux de la première couche, arrivez vous à distinguer le genre de *features* qui seront extraites par chacun ?
 
@@ -147,19 +147,19 @@ Appuyer sur entrée, puis entrer un indice (un entier de n'importe quelle valeur
 
 + Après la première couche de convolution, les *features* extraites correspondent elles à celles que vous imaginiez ?
 
-+ Après la première couche de *pooling*, les *features* présentes auparavant sont elles conservées ?
++ Après la première couche de *pooling*, les *features* présentes auparavant sont-elles conservées ?
 
 + Après la deuxième couche de *pooling*, diriez vous que de l'information spatiale est toujours présente ? Autrement dit, les activations ressemblent elles toujours à des images ?
 
-### 2.10 Entrainement final
+### 2.10 Entraînement final
 
 Arrêter le script. Jusqu'à présent, nous avons travaillé sur l'ensemble des données, mais pour la suite nous n'aurons besoin que des images de 1 et de 2 :
 
 * Changez la valeur de la variable `CLASSES` pour ne garder que les classes qui nous intéressent, 
 
-* Changer les SHOW_SAMPLES, SHOW_WEIGHTS et SHOW_ACTIV si vous désirez moins d'affichage graphique,
+* Changer `SHOW_SAMPLES`, `SHOW_WEIGHTS` et `SHOW_ACTIV` si vous désirez moins d'affichage graphique,
 
-* entraîner le réseau, puis le sauvegarder en donnant le nom d'un répertoire où sauvegarder les fichiers du réseau entraîné.
+* Entraîner le réseau, puis le sauvegarder en donnant le nom d'un répertoire où sauvegarder les fichiers du réseau entraîné.
 
 Vous pouvez passer maintenant à la **Partie Vision** qui permettra, une fois achevée, d'observer les prédictions du réseau avec les images des cubes correctement traitées... 
 
@@ -223,6 +223,13 @@ Les vignettes que nous allons présenter au réseau de neurones doivent aussi su
 
 Une fois que cela est fait, executez le script jusqu'à la fin.
 
+Vous pouvez maintenat ouvrir le fichier `main.py` pour tester l'intégration de la détection et de la reconnaissance...
+
+
 ## 4. Intégration
 
-Une fois terminé, vous pouvez ouvrir le fichier `main.py` pour tester l'intégration de la détection et de la reconnaissance. Bravo !
+Il est maintenant temps d'intégrer les deux parties du pipeline pour l'utilisation finale. Ouvrez le fichier `main.py` à la racine du projet. 
+
+Pour que les deux parties du pipeline s'adaptent correctement, vous avez complété la fonction `preprocess_sprites` qui permet de mettre les vignettes renvoyées par la partie détection dans un format compatible avec celui des images MNIST.
+
+Exécuter le programme `main.py` : donner le nom d'un dossier qui contient les fichiers des poids du réseau entraîné et vous devriez commencer à obtenir la reconnaissance des chiffres '1' et '2' des images fournies. Il faudra certainement refaire plusieurs fois l'entraînement du réseau en jouant sur plusieurs paramètres avant d'obtenir un réseau entraîné qui fonctionne correctement.
