@@ -54,7 +54,13 @@ if __name__ == "__main__":
 
     print("\n2) Process data")
     print("------------")
-    test = glob.glob('data/Ergo_cubes/*png')
+
+    ###
+    ### adjust directory "img_dir" as required:
+    ###
+    img_dir = './data/Ergo_cubes/'
+
+    test = glob.glob(dir_images + '*png')    
     for path in test:
         print("Testing image {}".format(path))
         image = cv2.imread(path)
