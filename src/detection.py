@@ -164,7 +164,7 @@ if __name__ == "__main__":
     ###
     ### adjust directory "img_dir" as required:
     ###
-    img_dir = './data/ergo_cubes/'
+    img_dir = '../data/ergo_cubes/'
 
     test_data = glob.glob(os.path.join(img_dir, '*.png'))
     print("Found test images: {}".format(test_data))

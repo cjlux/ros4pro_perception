@@ -21,7 +21,7 @@ def process(image, model, debug=None):
     debug_inner = debug in ["inner", "all"]
     contours = get_box_contours(image, debug=debug_inner)
     sprites = get_sprites(image, contours, debug=debug_inner)
-    inputs = preprocess_sprites(sprites, offset=2, debug=debug_inner)
+    inputs = preprocess_sprites(sprites, debug=debug_inner)
     labels = [model.predict(i.reshape(1, 28, 28, 1)).squeeze().argmax() + 1 for i in inputs]
 
     boxes = [Box(contour=c, sprite=s, input=i, label=l) for c, s, i, l in  zip(contours, sprites, inputs, labels)]
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     ###
     ### adjust directory "img_dir" as required:
     ###
-    img_dir = './data/Ergo_cubes/'
+    img_dir = './data/ergo_cubes/'
 
     test = glob.glob(dir_images + '*png')    
     for path in test:

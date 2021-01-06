@@ -96,7 +96,7 @@ def train_model(model, data_train, data_test, batch_size, epoch=20):
 if __name__ == "__main__":
 
     BATCH_SIZE = 128
-    CLASSES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    CLASSES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     SEED = 12
     np.random.seed(SEED)      
