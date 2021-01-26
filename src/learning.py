@@ -78,6 +78,7 @@ def train_model(model, data_train, data_test, batch_size, epoch=20):
     callbacks_list = [ 
         EarlyStopping(monitor='val_accuracy',  # the parameter to watch on
                       patience=3,              # max number of 'val_accuracy' decreases
+                      restore_best_weights=True,
                       verbose=1)
     ]
     tf.random.set_seed(SEED)
