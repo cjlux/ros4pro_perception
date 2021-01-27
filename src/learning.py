@@ -71,13 +71,13 @@ def build_model(input_shape, nb_classe):
     return model
 
 def train_model(model, data_train, data_test, batch_size, epoch=20):
-    """This function trains the model using data train. 
+    """This function trains the model using data_train. 
        The trained model is tested at each epoch, 
        and automatically stops the traing to avoid overfit.
     """
     callbacks_list = [ 
         EarlyStopping(monitor='val_accuracy',  # the parameter to watch on
-                      patience=3,              # max number of 'val_accuracy' decreases
+                      patience=3,              # max number of 'val_accuracy' decreases, can be adjusted...
                       restore_best_weights=True,
                       verbose=1)
     ]
