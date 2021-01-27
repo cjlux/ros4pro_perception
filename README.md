@@ -55,7 +55,7 @@ Avant d'appuyer sur entrée, assurez-vous que vous savez répondre aux questions
 
 Appuyer sur entrée pour continuer, et observer les images :
 
-* Quelles sont les valeurs des pixels blancs et des pixels noirs ?
+* Quelles sont les valeurs des pixels blancs et noirs ?
 
 * Observer les données et leurs labels. Toutes les images sont elles simples à classifier correctement ? Ferriez vous des erreurs en les classifiants ?
 
@@ -63,23 +63,23 @@ Appuyer sur entrée pour continuer, et observer les images :
 
 Fermer la fenêtre et appuyer à nouveau sur entrée :
 
-* Quelles sont les formes de `x_train` et `y_train` maintenant?
+* Quelles sont les formes de `x_train` et `y_train` maintenant ?
 
 * Pourquoi ces changements ?
 
-### 2.4 Prévisualation des données préparées
+### 2.4 Prévisualisation des données préparées
 
-Appuyer à nouveau sur entrée et observer les images:
+Appuyer à nouveau sur entrée et observer les images :
 
-* Quelles sont les valeurs des pixels blanc et des pixels noirs maintenant?
+* Quelles sont les valeurs des pixels blanc et noirs maintenant ?
 
-* Regarder la fonction `prepare_input` : quelle transformation des images est effectuée?
+* Regarder la fonction `prepare_input` : quelle transformation des images est effectuée ?
 
 ### 2.5 Le modèle du réseau convolutif
 
-Arrêter le script. Dans le fichier source `learning.py` modifier la fonction `build_model` pour implémenter un réseau convolutif semblable à celui vu dans le notebook `TP2_MNIST_convol.ipynb`.
+Arrêter le script. Dans le fichier source `learning.py` modifier la fonction `build_model` pour implémenter un réseau convolutif semblable à celui implémenté dans le notebook `TP2_MNIST_convol.ipynb`.
 
-Relancer alors le script et faire défiler jusqu'à la partie 2.5 (vous pouvez modifier `SHOW_SAMPLES` pour ne pas afficher toutes les fenêtres...) :
+Relancer le script et faire défiler jusqu'à la partie 2.5 (vous pouvez modifier `SHOW_SAMPLES` pour ne pas afficher toutes les fenêtres...) :
 
 * vérifier les informations des couches sur le résumé du modèle...
 
@@ -143,15 +143,15 @@ qui seront envoyées au réseau de neurone pour classification en '1' ou '2'...
 
 ### 3.1 Présentation des données
 
-Ouvrir le fichier `src/detection.py` et lancer le script. Une des images exemple issue de la caméra du robot devrait vous être présentée :
+Ouvrir le fichier `src/detection.py` et lancer le script. Une des images exemple issue de la caméra du robot apparaît :
 
 * Observer les valeurs de pixels ? Quelles sont les valeurs de pixels blancs et noirs ?
 
-* De manière générale, la face des cubes est elle semblable aux images MNIST ?
+* De manière générale, la face des cubes est-elle semblable aux images MNIST ?
 
 ### 3.2 Binarisation de l'image
 
-Appuyer sur entrée, et vous devriez voir s'afficher une image binarisée :
+Appuyer sur entrée pour afficher l'image binarisée :
 
 * Pouvez vous penser à un algorithme permettant d'arriver à un résultat similaire ?
 
@@ -161,9 +161,9 @@ Dans le code, observer la fonction `binarize` :
 
 En commentant successivement les lignes les utilisant, observer l'impact de chacune des fonctions suivantes :
 
-* fonction `closing`
-* fonction `clear_border`
-* fonction `convex_hull_object`
+* `closing`
+* `clear_border`
+* `convex_hull_object`
 
 Pourquoi faut-il éviter d'avoir des cubes qui touchent les bords de l'image ?
 
@@ -175,15 +175,14 @@ Observer la fonction `get_box_contours`:
 
 * À quoi sert la fonction `label` ?
 * À quoi sert le paramètre `area` ?
-* À quoi sert la fonction numpy `argsort` utilisée à la fin pour le ré-arragement des contours ? Pourquoi cette opération est elle importante ?
+* À quoi sert la fonction numpy `argsort` utilisée à la fin pour le ré-arragement des contours ? 
+Pourquoi cette opération est elle importante ?
 
 ### 3.4 Extraction des vignettes
 
 Appuyer sur entrée pour faire défiler quelques images dont les vignettes ont été extraites.
 
-Observer la fonction `get_sprites`:
-
-* Qu'est ce qu'une "transformation projective" ?
+Observer la fonction `get_sprites`: Qu'est ce qu'une "transformation projective" ?
 
 ### 3.5 Préparation des images
 
