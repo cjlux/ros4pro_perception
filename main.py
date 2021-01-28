@@ -50,7 +50,7 @@ if __name__ == "__main__":
     print("----------------")
     path = input("Enter the path to your network file: ")
     model = load_model(path)
-    print(model.summary)
+    print(model.summary())
 
     print("\n2) Process data")
     print("------------")
@@ -60,13 +60,14 @@ if __name__ == "__main__":
     ###
     img_dir = './data/ergo_cubes/'
 
-    test = glob.glob(dir_images + '*png')    
+    test = glob.glob(img_dir + '*png')    
     for path in test:
         print("Testing image {}".format(path))
         image = cv2.imread(path)
-        image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         try:
             boxes = process(image, model, debug="synthesis")
+            print('boxes:', boxes)
         except Exception as e:
-            print("Failed to process image {}".format(path))
+            print(f"Failed to process image {<path>}")
             pass

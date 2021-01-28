@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import pandas as pd
 from seaborn import heatmap
-from sklearn.metrics import confusion_matrix
 from itertools import *
 from tensorflow.keras import backend
 
@@ -77,18 +76,6 @@ def plot_loss_accuracy(history):
     ax2.grid()
     plt.show()
 
-def show_cm_mnist(target, results, classes):
-    # target  : the actual labels (one-hot format)
-    # results : the labels computed by the trained network (one-hot format)
-    # classes : list of possible label values
-    predicted = np.argmax(results, axis=-1) # tableau d'entiers entre 0 et 9 
-    cm = confusion_matrix(target, predicted)
-    df_cm = pd.DataFrame(cm, index=classes, columns=classes)
-    plt.figure(figsize=(11,9))
-    heatmap(df_cm, annot=True, cbar=False, fmt="3d")
-    plt.xlabel('actual label')
-    plt.ylabel('predicted label')
-    plt.show()
 
 def plot_learning_curves(train_loss, test_loss, title):
     """
