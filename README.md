@@ -4,7 +4,7 @@ Ce repository contient le code source à analyser et compléter pour la journée
 
 ## 0. Installation
 
-Pour travailler cet atelier,  vous devez installer les packages Python requis en tapant la commande suivante (depuis le dossier `ros4pro_perception`) :
+Pour travailler cet atelier,  vous devez installer les packages Python requis en tapant la commande suivante (depuis le dossier `ros4pro_perception-master`) :
 
 ```bash
 pip install -r requirements.txt
@@ -31,7 +31,7 @@ Enfin, pour la partie reconnaissance, nous utilsons le module `keras` inclus dan
 
 ### 2.0 Travail préliminaire avec les notebooks Jupyter 📒
 
-En tapant la commande `jupyter notebook` depuis le dossier `ros4pro_perception` vous pouvez charger les deux notebooks *à trous* pour la prise en main du *machine learning* avec **tensorflow** et **keras** :
+En tapant la commande `jupyter notebook` depuis le dossier `ros4pro_perception-master` vous pouvez charger les deux notebooks *à trous* pour la prise en main du *machine learning* avec **tensorflow** et **keras** :
 
 * `notebook/TP1_MNIST_dense.ipynb` : utiliser ce notebook pour l'acquisition des bases sur le *machine learning*, la banque d'images MNIST utilisée pour l'entraînement des réseaux, et la construction d'un réseau de neurones dense, son entraînement et son exploitation, conduisant à un taux de reconnaissance des images MNIST voisin de 98 %.
 
@@ -202,7 +202,7 @@ Il est maintenant temps d'intégrer les deux parties du pipeline pour l'utilisat
 
 Pour que les deux parties du pipeline s'adaptent correctement, vous avez complété la fonction `preprocess_sprites` pour mettre les vignettes renvoyées par la partie détection dans un format compatible avec celui des images MNIST.
 
-Exécuter maintenant le programme `main.py` : donner le nom d'un dossier qui contient les fichiers des poids du réseau entraîné et vous devriez commencer à obtenir la reconnaissance des chiffres '1' et '2' dans les images fournies.
+Exécuter maintenant le programme `main.py` : donner le chemin d'un dossier qui contient les fichiers du réseau entraîné et vous devriez commencer à obtenir la reconnaissance des chiffres '1' et '2' dans les images fournies.
 
 Il faudra certainement refaire plusieurs fois l'entraînement du réseau en jouant sur plusieurs paramètres avant d'obtenir un réseau entraîné qui fonctionne correctement :
 
