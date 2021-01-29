@@ -23,7 +23,8 @@ Pour la partie détection des faces des cubes et pré-processing, nous utilisero
 
 * [Scikit-Image Documentation](https://scikit-image.org/docs/stable)
 
-Enfin, pour la partie reconnaissance, nous utilsons le module `keras` inclus dans le module `tensorflow` depuis sa version 2. Un point d'entrée sur l'API Séquentielle de keras peut être consulté sur cette page :
+Enfin, pour la partie reconnaissance, nous utilisons le module `keras` inclus dans le module `tensorflow` depuis sa version 2. 
+Un point d'entrée sur l'API Séquentielle de keras peut être consulté sur cette page :
 
 * [keras API Sequential](https://www.tensorflow.org/guide/keras/sequential_model?hl=fr)
 
@@ -33,7 +34,7 @@ Enfin, pour la partie reconnaissance, nous utilsons le module `keras` inclus dan
 
 En tapant la commande `jupyter notebook` depuis le dossier `ros4pro_perception` vous pouvez charger les deux notebooks *à trous* pour la prise en main du *machine learning* avec **tensorflow** et **keras** :
 
-* `notebook/TP1_MNIST_dense.ipynb` : utiliser ce notebook pour l'acquisition des bases sur le *machine learning*, la banque d'images MNIST utilisée pour l'entraînement des réseaux, et la construction d'un réseau de neurones dense, son entraînement et son exploitation, conduisant à un taux de reconnaissance des images MNIST voisin de 98 %.
+* `notebook/TP1_MNIST_dense.ipynb` : utiliser ce notebook pour l'acquisition des bases sur le *machine learning*, le chargement de la banque d'images MNIST pour l'entraînement des réseaux, et la construction d'un réseau de neurones dense, son entraînement et son exploitation, permettant un taux de reconnaissance des images MNIST voisin de 98 %.
 
 * `notebook/TP2_MNIST_convol.ipynb` : utiliser ensuite ce notebook pour la construction d'un réseau convolutif, son entraînement avec les images MNIST et son exploitation, conduisant à un taux de reconnaissance voisin de 99 %.
 
@@ -41,9 +42,7 @@ Une fois familiarisé avec les principes de construction des réseaux denses et 
 
 ### 2.1  Chargement des images MNIST
 
-Ouvrir le fichier `src/learning.py`, prendre connaissance du code, puis lancer le programme.
-
-Avant d'appuyer sur entrée, assurez-vous que vous savez répondre aux questions suivantes :
+Ouvrir le fichier `src/learning.py`, prendre connaissance du code, puis lancer le programme. Avant d'appuyer sur entrée, assurez-vous que vous savez répondre aux questions suivantes :
 
 * Que contiennent les variables `x_train` et `y_train` ?
 
@@ -155,9 +154,7 @@ Appuyer sur entrée pour afficher l'image binarisée :
 
 * Pouvez vous penser à un algorithme permettant d'arriver à un résultat similaire ?
 
-Dans le code, observer la fonction `binarize` :
-
-* À quoi sert la fonction `threshold_otsu` ? (voir au besoin la documentation  `scikit-image`).
+* Observer la fonction `binarize` : à quoi sert la fonction `threshold_otsu` ? (voir au besoin la documentation  `scikit-image`).
 
 En commentant successivement les lignes les utilisant, observer l'impact de chacune des fonctions suivantes :
 
@@ -216,6 +213,6 @@ Il faudra certainement refaire plusieurs fois l'entraînement du réseau en joua
 
 À vous de jouer pour obtenir un réseau entraîné classifiant le mieux possible les chiffres '1' et '2' dans les images fournies par la caméra du robot...
 
-Pour confirmer la qualité de votre réseau entraîné vous pouvez enregistrer vos propres fichiers PNG avec les images faites avec la caméra du robot en utilisant le service ROS `/get_image`. Aidez-vous des idications du paragraphe __2.4. Récupérer les images de la caméra en Python__ dans la section [Manipulation/Poppy Ergo Jr](https://learn.ros4.pro/fr/manipulation/ergo-jr/) : vous pouvez ajouter une instruction `cv2.imwrite(image, <file_name>)` pour écrire vos propres fichiers PNG dans le répertoire `data/ergo_cubes/perso` et modifier en conséquence la variable `img_dir` du fichier `main.py`.
+Pour confirmer la qualité de votre réseau entraîné vous pouvez enregistrer vos propres fichiers PNG avec les images faites avec la caméra du robot en utilisant le service ROS `/get_image`. Aidez-vous des idications du paragraphe __2.4. Récupérer les images de la caméra en Python__ dans la section [Manipulation/Poppy Ergo Jr](https://learn.ros4.pro/fr/manipulation/ergo-jr/) : vous pouvez ajouter une instruction `cv2.imwrite(<file_name>, image)` pour écrire vos propres fichiers PNG dans le répertoire `data/ergo_cubes/perso` et modifier en conséquence la variable `img_dir` du fichier `main.py`.
 
 Lancer le programme et observer les performances de votre réseau opérant sur vos propres images.
